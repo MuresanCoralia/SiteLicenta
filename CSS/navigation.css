@@ -1,0 +1,267 @@
+/* THE MAIN PAGE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* the body */
+body {
+    font-family: cursive;
+    background-blend-mode: screen;
+    background-size: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+
+/* THE NAVIGATION BAR */
+/* the menu */
+a {
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+}
+
+li {
+    list-style: none;
+}
+
+/* the navigation bar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgb(205, 220, 253);
+    color: rgb(80, 121, 216);
+    border-bottom: 3px solid #2f2f2f;
+    padding: 20px;
+}   
+
+/* the menu buttons */
+.nav-links a {
+    color: #2f2f2f;
+}
+
+/* the logo */
+.logo {
+    position: relative;
+    left: 60px;
+    font-size: 32px;  
+    text-shadow: 2px 2px #0d1f2b; 
+}
+
+/* the logo image */
+img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+/* the navigation menu */   
+.menu {
+    position: relative;
+    right: 50px;
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+}
+
+.menu li:hover {
+    border-radius: 5px;
+    transition: 0.3s ease;
+    text-decoration: underline;
+}
+
+.menu li {
+    padding: 5px 14px;
+}
+
+/* the dropdown menu */
+.services {
+    position: relative; 
+}
+
+.dropdown {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #2f2f2f;
+    background-color: #CDDCFD;
+    padding: 1em 0;
+    position: absolute; 
+    display: none;
+    border-radius: 8px;
+    top: 35px;
+}
+
+.dropdown li + li {
+    margin-top: 10px;
+}
+   
+.dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+}
+   
+.dropdown li:hover {
+    border-style: solid;
+    border-color: #2f2f2f;
+}
+
+.services:hover .dropdown {
+    display: block;
+}
+
+/* the loading images */
+#img {
+    position: absolute;
+    left: 300px;
+    top: 110px;
+    width: 680px;
+    height: 420px;
+}
+
+
+/* THE NEWS PAGE */
+/* for the news cards */
+#news {
+    height: 100%;
+}
+
+#left {
+    float: left;
+    width: 50%;
+    height: 480px;
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-color: #2f2f2f;
+    min-height: 100% !important;
+}
+
+#right {
+    margin: 5 0 0 0px;
+    background-color: #ffffff;
+    width: 50%;
+    min-height: 100% !important;
+    float:left;
+}
+
+#imagine-news {
+    height: 100px;
+    width: 100px;
+}
+
+.small-news {
+    height: 96px;
+    width: 640px;
+    border-style: solid;
+    border-color: #2f2f2f;
+}
+
+.seeMore {
+    background-color: #2f2f2f;
+    border-style: none;
+    height: 25px;
+    width: 105px;
+    color: #fff;
+    margin-left: 500px;
+    border-radius: 6px;
+} 
+
+.seeMore:hover {
+    background-color: rgb(80, 121, 216);
+}
+  
+
+/* THE VOTE PAGE */
+/* the log in page */
+
+#backgroundvote {
+    background: url(../Images/Parlament.jpg);
+    background-blend-mode: screen;
+    background-size: 100%;
+    background-color: rgb(81, 105, 128);
+}
+
+.login-box {
+    position: relative;
+    top: 220px;
+    left: 50%;
+    width: 400px;
+    height: 350px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #abcfd6;
+    text-align: center;
+    font-size: 25px;
+}
+
+.login-box .user-box {
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+}
+
+.login-box .user-box label {
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.login-box form a {
+    position: relative;
+    margin-left: 22%;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #abcfd6;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+}
+
+.login-box a:hover {
+    background: #abcfd6;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #abcfd6,
+                0 0 25px #abcfd6,
+                0 0 50px #abcfd6,
+                0 0 100px #abcfd6;
+}
+
+.login-box a span {
+    position: absolute;
+    display: block;
+}
+
+/* the scroll bar */
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #363062;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #222236;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: linear-gradient(45deg, #CDDCFD, #CDDCFD);
+}

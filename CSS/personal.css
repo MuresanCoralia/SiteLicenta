@@ -1,0 +1,337 @@
+/* THE MAIN PAGE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* THE PROFILE PAGE */ 
+#backgroundvote {
+    background: url(../Images/Parlament.jpg);
+    background-blend-mode: screen;
+    background-size: 100%;
+    background-color: rgb(81, 105, 128);
+}
+
+.profil-box {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 450px;
+    width: 700px;
+    background: rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+}
+
+.profil-box h1 {
+    text-align:center;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 2%;
+    color: #abcfd6;
+}
+
+.wallet {
+    margin-top: 8%;
+}
+
+.wallet h2 {
+    margin-top: 2%;
+    text-align:center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: white;
+}
+
+.details h3 {
+    margin-top: 4%;
+    text-align:center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: white;
+}
+
+.optiuni {
+    margin-top: 6%;
+    margin-bottom: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+#votat {
+    font-weight: bold;
+    text-shadow: 0 0 5px rgb(255, 45, 45),
+                0 0 25px rgb(255, 45, 45),
+                0 0 50px rgb(255, 45, 45),
+                0 0 100px rgb(255, 45, 45);
+}
+
+#back {
+    margin-bottom: 2%;
+}
+
+/* all buttons the same */
+.butoane {
+    position: relative;
+    text-align:center;
+    margin: auto;
+    display: flex; 
+    padding: 10px 20px;
+    color: #abcfd6;
+    background-color: rgba(0, 0, 0, 0.01);
+    border: none;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: 4px;
+}
+
+.butoane:hover {
+    background: #abcfd6;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #abcfd6,
+                0 0 25px #abcfd6,
+                0 0 50px #abcfd6,
+                0 0 100px #abcfd6;
+}
+
+#submit {
+    visibility: hidden;
+}
+
+
+/* THE VOTE PAGE */ 
+.alegere {
+    margin-top: 7%;
+    font-size: 13px;
+    color: white;
+    text-align:center;
+    font-style: normal;
+    font-weight: normal;
+}
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: 1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: 1px;
+    position: relative;
+    background-color: red;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+
+/* THE ADMIN PAGE */ 
+.admin-box {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 90%;
+    width: 90%;
+    background: rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+}
+
+.admin {
+    color: #abcfd6;
+    font-size: 20px;
+    position:absolute;
+    text-align:center;
+    bottom:0;
+    width:100%;
+    margin-top: 15%;
+}
+
+#meniu {
+    display: flex;
+    align-items: stretch;
+    height: 40px; 
+    border-bottom: 2px solid black;
+}
+
+#meniu span {
+    display: inline-block;
+    width: 32.8%;
+    text-align: center;
+    height: 40px; 
+    font-size: 20px;
+}
+
+#back {
+    margin: 0;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* admin menu */
+#editCandidate {
+    cursor:pointer;
+    color: #fff;
+    background-color:rgba(0, 0, 0, 0.6);
+    padding-left:13px;
+    padding-right:13px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 9px;
+}
+
+#editVoters {
+    cursor:pointer;
+    color: #fff;
+    background-color:rgba(0, 0, 0, 0.6);
+    padding-left:13px;
+    padding-right:13px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#seeResults {
+    cursor:pointer;
+    color: #fff;
+    background-color:rgba(0, 0, 0, 0.6);
+    padding-left:13px;
+    padding-right:13px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+/* admin page */
+#candidate {
+    display:block;
+    position:relative;
+    margin-top: 8%;
+    bottom:1px;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.01);
+}
+
+#candidati {
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    text-align: center;
+}
+
+#result {
+    display:none;
+    position:relative;
+    margin-top: 5%;
+    bottom:1px;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.01);
+}
+
+#result label {
+    color: white;
+}
+
+.results {
+    margin-left: 15px;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgb(255, 45, 45),
+                0 0 25px rgb(255, 45, 45),
+                0 0 50px rgb(255, 45, 45),
+                0 0 100px rgb(255, 45, 45);
+}
+
+#voters {
+    display:block;
+    position:relative;
+    bottom:1px;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.01);
+}
+
+#voter {
+    width: 75%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    text-align: center;
+    resize: none;
+}
+
+.coloane:after {
+    content: "";
+    display: table;
+    clear: none;
+    margin-top: -190px;
+}
+
+.left {
+    float: left;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    width: 50%;
+    padding: 10px;
+    height: 340px; 
+}
+
+/* the scroll bar */
+.right {
+    float: left;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    width: 50%;
+    padding: 10px;
+    height: 340px; 
+    color: white;
+    text-align: left;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.01);;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(0, 0, 0, 0.01);;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: linear-gradient(45deg, #CDDCFD, #CDDCFD);
+}

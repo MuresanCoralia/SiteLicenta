@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="../CSS/personal.css" />
+   <title>Licență</title>
+   <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js" ></script>
+   <script src="../JavaScript/blockchain.js" type="module"></script>
+   <script type="module" src="../JavaScript/profile.js"></script>
+ </head>
+ <body id="backgroundvote">
+  
+  <div class="profil-box">
+    <h1>Profil</h1>
+    <div class="wallet">
+      <h2>Adresă Wallet:</h2>
+      <h2 id="address">..................</h2>
+    </div>
+    <div class="details">
+      <h3>Vot: </h3>
+      <h3 id="votat">......</h3>
+    </div>
+    <div class="optiuni">
+      <button id="admin" style="visibility: hidden;" class="butoane">Admin</button>
+      <button id="votePrezid" class="butoane">Votează</button>
+      <br>
+      <button id="logOut" class="butoane">Deconectare</button>
+    </div>
+  </div>
+
+ </body>
+ <script src="../JavaScript/logOut.js"></script>
+ </html>

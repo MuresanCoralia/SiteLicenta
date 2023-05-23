@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../CSS/personal.css" />
+  <title>Licență</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="../JavaScript/blockchain.js" type="module"></script>
+</head>
+
+<body id="backgroundvote">
+
+  <section class="admin-box">
+    <div id="meniu">
+      <span id="editCandidate" onclick="show('editCandidate','candidate');">Editare candidati</span>
+      <span id="editVoters" onclick="show('editVoters','voters');">Editare alegatori</span>
+      <span id="seeResults" onclick="show('seeResults','result');">Rezultate voturi</span>
+    </div>
+    <!-- add candidates section-->
+    <div class="admin" id="candidate">
+      <label for="candidati">Adauga candidat: </label>
+      <input type="text" id="candidati" name="candidati"><br><br>
+      <label for="numar">Adauga numar candidatt: </label>
+      <input type="text" id="numar" name="numar"><br><br><br>
+      <button id="submitCandidate" class="butoane" type="submit" value="Submit">Submit</button>
+    </div>
+    <!-- add voters section-->
+    <div class="admin" id="voters">
+      <div class="coloane">
+        <div class="left">
+          <div class="coloane">
+            <br><br>
+            <label for="voter">Adauga alegatori: </label>
+            <br><br>
+            <textarea name="voter" id="voter" cols="40" rows="5"></textarea><br><br><br>
+            <!--<input type="text" id="voter" name="voter"><br><br><br>-->
+            <button id="submitVoter" class="butoane" type="submit" value="Submit">Submit</button>
+          </div>
+        </div>
+        <div class="right">
+          <div class="coloane" id="scroll"></div>
+        </div>
+      </div>
+    </div>
+    <!-- results candidates section-->
+    <div class="admin" id="result">
+      <h1>Rezultate</h1><br><br>
+      <label>Candidat 10: </label>
+      <label class="results" id="candidate10">...</label><br><br>
+      <label>Candidat 20: </label>
+      <label class="results" id="candidate20">...</label><br><br>
+      <label>Candidat 30: </label>
+      <label class="results" id="candidate30">...</label><br><br>
+      <label>Candidat 40: </label>
+      <label class="results" id="candidate40">...</label><br>
+    </div>
+    <button id="back" class="butoane">Înapoi</button>
+  </section>
+
+  <script src="../JavaScript/meniuAdmin.js"></script>
+  <script type="module" src="../JavaScript/admin.js"></script>
+
+</html>

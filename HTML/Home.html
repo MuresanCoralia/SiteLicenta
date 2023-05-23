@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="../CSS/navigation.css" />
+   <title>Licență</title>
+ </head>
+ <body>
+
+   <!-- Navigation Bar -->
+   <nav class="navbar">
+     <!-- Logo (titlu + imagine) -->
+     <img src="../Images/Stema.png" alt=" ">
+     <div class="logo">ROMÂNIA</div>
+     <!-- Navigation menu -->
+     <ul class="nav-links">
+       <div class="menu">
+         <li><a href="Home.html">Home</a></li>
+         <li><a href="Media.html">Media</a></li>
+         <li class="services">
+           <a>Contact</a>
+           <ul class="dropdown">
+            <li><a href="https://www.gov.ro/">www.gov.ro</a></li>
+             <li><a>drp@gov.ro</a></li>
+           </ul>
+         </li>
+         <li><a class="vote" href="Voteaza.html">Votează</a></li>
+       </div>
+     </ul>
+   </nav>
+
+   <!-- The script/code for the loading images on home page (imageChange.js) -->
+   <script src="../JavaScript/homeImageChange.js"></script>
+   <body onload = "startTimer()">
+      <img id="img" src="../Images/poza4.jpg"/>
+   </body>
+
+ </body>
+</html>
