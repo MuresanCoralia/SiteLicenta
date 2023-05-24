@@ -21,7 +21,6 @@ if (window.localStorage.userWalletAddress === "0x7ad0e3824eae5991ee2300f54f0337c
   admin.addEventListener("click", adminLogIn);
 }
 
-
 // the log out button
 const dezabonare = document.getElementById("logOut");
 

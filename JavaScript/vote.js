@@ -2,19 +2,20 @@
 import {getCandidateList, vote, web3Load} from './blockchain.js';
 
 var usersChosenCandidate = 0;
+let candidateList;
 
 // function to display the candidates on the voting page
 async function getCandidatesList() {
- await getCandidateList().then((candidateData) => {
-
-  candidateData.forEach(element => {
-    createCandidatesForm(element.name, element.number, "formVotare");
-    const br1 = document.createElement("br");
-    const br2 = document.createElement("br");
-    document.getElementById("formVotare").appendChild(br1);
-    document.getElementById("formVotare").appendChild(br2);
-  });
-})
+  await getCandidateList().then((candidateData) => {
+    
+    candidateData.forEach(element => {
+      createCandidatesForm(element.name, element.number, "formVotare");
+      const br1 = document.createElement("br");
+      const br2 = document.createElement("br");
+      document.getElementById("formVotare").appendChild(br1);
+      document.getElementById("formVotare").appendChild(br2);
+    });
+  })
 }
 
 // creates the voting form with candidates
@@ -46,23 +47,35 @@ function setUserChoice() {
 function submit() {
 
   vote(usersChosenCandidate);
-  alert("Ați votat candidatul: " + candidateName());
+  alert("Vreți să votați cu candidatul: " + getCandidateName());
   //location.href = "Profil.html"; 
 }
 
-// function to get the name of the cazndidate
-function candidateName() {
+// function to get the name of the candidate
+function getCandidateName() {
+  let name;
+  candidateList.forEach(element => {
+    if (element.number == usersChosenCandidate) {
+      name = element.name;
+    }
+  });
+  return name;
+}
+
+// function to get the list of candidates from blockchain
+function getCandList() {
   getCandidateList().then((candidateData) => {
-    candidateData.forEach(element => {
-      if (element.number == usersChosenCandidate) 
-        return element.name;
-    });
+      candidateList = candidateData;
+  }).catch((error) => {
+    console.log(error);
   })
 }
  
-
 async function runPage() {
   await web3Load("Profil.html");
+
+  // get the candidates list
+  getCandList();
 
   // the back button
   const buttonBack = document.getElementById("back");

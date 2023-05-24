@@ -1,6 +1,5 @@
 
-import {addCandidate, web3Load, addVoters, getVotersList, voteResults, getChairPerson } from './blockchain.js';
-
+import {addCandidate, web3Load, addVoters, getVotersList, voteResults, getChairPerson, getCandidateList } from './blockchain.js';
 
 //function to add candidates
 function addCandidates() {
@@ -17,10 +16,10 @@ function submitVoters() {
     walletList.forEach(element => {
         finalWallets.push(element.trim());
     });
-
     addVoters(finalWallets);
 }
 
+// function to display the wallets allowed to vote
 async function displayVoters() {
     await getVotersList().then((result) => {
         const walletsToVote = document.getElementById('scroll');
@@ -34,37 +33,44 @@ async function displayVoters() {
     })
 }
 
-
-//Retrieves the full array with all the candidates and their votes from blockchain
-//and show in the screen
+// Retrieves the full array with all the candidates and their votes from 
+// blockchain and show in the screen
 async function displayResults() {
-    let result;
+
+    // get the candidates list
+    await getCandidateList().then((candidateData) => {
+
+        candidateData.forEach(element => {
+          createResultssForm(element.name, element.number, "result");
+          const br1 = document.createElement("br");
+          const br2 = document.createElement("br");
+          document.getElementById("result").appendChild(br1);
+          document.getElementById("result").appendChild(br2);
+        });
+    });
+    
+    // get the candidates vote results
     await voteResults().then(allCandidates => {
         console.log('displayResults:allCandidates: ', allCandidates);
         allCandidates.forEach((candidate) => {
             console.log('displayResults:foreach:candidate: ', candidate);
-            document.getElementById('candidate' + candidate.number).innerHTML = candidate.voteCount
+            document.getElementById('Candidate' + candidate.number).innerHTML = candidate.voteCount
         });
     });
-
 }
-/**
- *     await voteResults(0).then((result) => {
-        document.getElementById('candidate0').innerHTML = result.voteCount
-    })
 
-    await voteResults(1).then((result) => {
-        document.getElementById('candidate1').innerHTML = result.voteCount
-    })
+// creates the results form with candidates
+function createResultssForm(name, number, divName) {
 
-    await voteResults(2).then((result) => {
-        document.getElementById('candidate2').innerHTML = result.voteCount
-    })
-
-    await voteResults(3).then((result) => {
-        document.getElementById('candidate3').innerHTML = result.voteCount
-    })
- */
+    const id = "Candidate" + number;
+    const candidateName = document.createElement("label");
+    candidateName.innerHTML = name + " " + number + "  " + ": ";
+    const candidateNumber = document.createElement("label");
+    candidateNumber.setAttribute("class", 'results');
+    candidateNumber.setAttribute("id", id);
+    document.getElementById(divName).appendChild(candidateName);
+    document.getElementById(divName).appendChild(candidateNumber);
+}
 
 async function runPage() {
     await web3Load("Profil.html");
@@ -72,6 +78,7 @@ async function runPage() {
     await getChairPerson().then((adminWallet) =>
         console.log("Admin wallet of this contract is: ", adminWallet)
     );
+    
     // add voter button
     const submitVoter = document.getElementById("submitVoter");
     // add the voter on click    
