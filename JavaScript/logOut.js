@@ -1,26 +1,4 @@
 
-// show the user's wallet address from the global userWalletAddress variable
-const walletAddressEl = document.querySelector("#address");
-walletAddressEl.innerHTML = window.localStorage.userWalletAddress;
-
-// enables admin button
-if (window.localStorage.userWalletAddress === "0x7ad0e3824eae5991ee2300f54f0337c4bbd5d592") {
-
-  // the admin button
-  const admin = document.getElementById("admin");
-  admin.style.visibility = "visible";
-
-  // admin function
-  const adminLogIn = () => {
-
-    // get the user to the voting page
-    location.href = "Admin.html";
-  };
-
-  // the admin click
-  admin.addEventListener("click", adminLogIn);
-}
-
 // the log out button
 const dezabonare = document.getElementById("logOut");
 

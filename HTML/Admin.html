@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../CSS/personal.css" />
   <title>Licență</title>
@@ -21,9 +22,12 @@
     <div class="admin" id="candidate">
       <label for="candidati">Adauga candidat: </label>
       <input type="text" id="candidati" name="candidati"><br><br>
-      <label for="numar">Adauga numar candidat: </label>
-      <input type="text" id="numar" name="numar"><br><br><br>
-      <button id="submitCandidate" class="butoane" type="submit" value="Submit">Submit</button>
+      <label for="numar">Adauga numarul candidatului: </label>
+      <input type="text" id="numar" name="numar"><br><br>
+      <button id="submitCandidate" class="butoane" type="submit" value="Submit">Submit</button><br><br>
+      <label for="numar">Șterge candidatul dupa numar: </label>
+      <input type="text" id="numarSters" name="numar"><br><br>
+      <button id="deleteCandidate" class="butoane" type="submit" value="Submit">Șterge</button>
     </div>
     <!-- add voters section-->
     <div class="admin" id="voters">
@@ -31,10 +35,12 @@
         <div class="left">
           <div class="coloane">
             <br><br>
-            <label for="voter">Adauga alegatori: </label>
-            <br><br>
-            <textarea name="voter" id="voter" cols="40" rows="5"></textarea><br><br><br>
-            <button id="submitVoter" class="butoane" type="submit" value="Submit">Submit</button>
+            <label for="voter">Adauga alegatori: </label><br><br>
+            <textarea name="voter" id="voter" cols="40" rows="5"></textarea><br><br>
+            <button id="submitVoter" class="butoane" type="submit" value="Submit">Submit</button><br><br>
+            <label for="voter">Șterge alegator: </label><br><br>
+            <input type="text" id="alegatorSters" name="numar"><br><br>
+            <button id="deleteVoter" class="butoane" type="submit" value="Submit">Șterge</button><br><br>
           </div>
         </div>
         <div class="right">

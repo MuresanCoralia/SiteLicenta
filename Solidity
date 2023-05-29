@@ -1,0 +1,262 @@
+// SPDX-License-Identifier: GPL-3.0
+pragma experimental ABIEncoderV2;
+pragma solidity >=0.7.0 <0.9.0;
+
+/** 
+ * @title Ballot
+ * @dev Implements voting process along with vote delegation
+ */
+contract Election {
+
+    struct Voter {
+        uint weight; // weight is accumulated by delegation
+        bool voted;  // if true, that person already voted
+        address delegate; // person delegated to`   
+        uint vote;   // index of the voted Candidate
+    }
+
+    struct Candidate {
+        // If you can limit the length to a certain number of bytes, 
+        // always use one of bytes1 to bytes32 because they are much cheaper
+        //
+        string name;
+        uint256 number;   // short name (up to 32 bytes)
+        uint voteCount; // number of accumulated votes
+    }
+
+    mapping(address => Voter) public voters;
+    address public chairperson;
+    address [] private listOfvoters;
+
+    uint256 electionStart;
+    uint256 electionEnds;
+
+    Candidate[] public candidates;
+  
+    constructor() {
+        electionStart = 991683909226; 
+        chairperson = msg.sender;
+        //voters[chairperson].weight = 1;
+    }
+
+
+    modifier onlyChainPerson(){
+        require(
+            msg.sender == chairperson,
+            "Only chairperson can do this."
+        );
+        _;
+    }
+
+    modifier duringElection (){
+     //   uint256 now = block.timestamp;
+     //   require(now >= electionStart && now < electionEnds,"Out of the election timeframe");
+        _;
+    }
+
+    modifier beforeElection (){
+      //  uint256 now = block.timestamp;
+      //  require(now < electionStart,"Election has already started");
+        _;
+    }
+
+    //Add candidates to the election
+    function addCandidates(Candidate [] memory candidates_) public beforeElection onlyChainPerson{
+        for (uint i = 0; i < candidates_.length; i++) {
+            Candidate memory newCandidate  = candidates[i];
+            candidates.push(candidates[i]);
+        }
+    }
+
+    //Add a candidate to the election
+    function addCandidate(string calldata name_, uint256 number_  ) public beforeElection onlyChainPerson{
+        candidates.push(Candidate({
+            name: name_,
+            number: number_,
+            voteCount: 0
+        }));
+    }
+
+
+    //Remove a candidate from this election
+    function removeCandidate(uint256 number) public onlyChainPerson beforeElection{
+        for (uint i = 0; i < candidates.length; i++) {
+             if( candidates[i].number == number){
+                delete(candidates[i]);
+                break;
+             }
+        }
+    }
+
+    //Remove a candidate from this election
+    function modifyCandidate(uint256 number,string calldata newName) public beforeElection onlyChainPerson{
+        for (uint i = 0; i < candidates.length; i++) {
+             if( candidates[i].number == number){
+                candidates[i].name = newName ;
+                break;
+             }
+        }
+    }
+
+
+
+    function hasVoted(address voter)  private view returns (bool ret){
+        ret = voters[voter].voted;
+    }
+
+    function exists(address voter) private view returns  (bool ret){
+        ret= voters[voter].weight != 0;
+    }
+
+    //set the timestamp when the election starts
+    function setElectionStart(uint256 start, uint256 end) public beforeElection onlyChainPerson {
+        electionStart = start;
+        electionEnds = end;
+    }
+
+ 
+
+    //Change the chair paerson
+    function changeChairperson(address newAddress) public onlyChainPerson beforeElection {
+        require (!exists(newAddress), "Voter cannot bve chairperson");
+        chairperson = newAddress;
+    }
+
+    /** 
+     * @dev Give 'voter' the right to vote on this ballot. May only be called by 'chairperson'.
+     * @param voter address of voter
+     */
+    function addVotter(address voter) public onlyChainPerson beforeElection{ 
+        require(!hasVoted(voter),"Already voted");
+        require (!exists(voter), "Voter already exists");
+        voters[voter].weight = 1;
+        listOfvoters.push(voter);
+    }
+
+
+    //Add voter in batch
+    function addVoters(address [] memory allVoter_) public beforeElection onlyChainPerson{
+        for(uint256 i=0; i< allVoter_.length; i++){
+            address newVoter = allVoter_[i];
+            voters[newVoter].weight = 1;
+            listOfvoters.push(newVoter);
+        }
+    }
+
+
+    //Denies a votter to vote
+    function removeVoter(address  voter) public beforeElection onlyChainPerson{
+        voters[voter].weight = 0;   
+        for(uint256 i=0; i < listOfvoters.length; i++) {
+            if(listOfvoters[i] == voter){
+                delete(listOfvoters[i]);
+                break;
+            }
+        }
+        
+    }
+
+    //Returns the wallets that are allowed to vote
+    function getVotersList() external  view onlyChainPerson returns (address [] memory listRetrunVoters){
+        return listOfvoters;
+    }
+
+    function getCandidateList() external  view  returns (Candidate [] memory ){
+        return candidates;
+    }
+
+    /**
+     * @dev Delegate your vote to the voter 'to'.
+     * @param to address to which vote is delegated
+     */
+    function delegate(address to) public beforeElection {
+        Voter storage sender = voters[msg.sender];
+        require(!sender.voted, "You already voted.");
+        require(to != msg.sender, "Self-delegation is disallowed.");
+
+        while (voters[to].delegate != address(0)) {
+            to = voters[to].delegate;
+
+            // We found a loop in the delegation, not allowed.
+            require(to != msg.sender, "Found loop in delegation.");
+        }
+        sender.voted = true;
+        sender.delegate = to;
+        Voter storage delegate_ = voters[to];
+        if (delegate_.voted) {
+            // If the delegate already voted,
+            // directly add to the number of votes
+            candidates[delegate_.vote].voteCount += sender.weight;
+        } else {
+            // If the delegate did not vote yet,
+            // add to her weight.
+            delegate_.weight += sender.weight;
+        }
+    }
+
+    /**
+     * @dev Give your vote (including votes delegated to you) to candidate 'candidates[candidate].name'.
+     * @param candidate index of candidate in the candidates array
+     */
+  /*function vote(uint candidate) public {
+        Voter storage sender = voters[msg.sender];
+        require(sender.weight != 0, "Has no right to vote");
+        require(!sender.voted, "Already voted.");
+        sender.voted = true;
+        sender.vote = candidate;
+
+        // If 'candidate' is out of the range of the array,
+        // this will throw automatically and revert all
+        // changes.
+        candidates[candidate].voteCount += sender.weight;
+    }
+    */
+    /**
+     * @dev Give your vote (including votes delegated to you) to candidate 'candidates[candidate].name'.
+     * @param number vote on the candidate which holds this candidade Id.
+     */
+    function vote(uint number) duringElection public {
+        Voter storage sender = voters[msg.sender];
+        require(sender.weight != 0, "Has no right to vote");
+        require(!sender.voted, "Already voted.");
+
+        uint256 candidate = candidates.length;        
+        for(uint256 i=0; i < candidates.length; i++){
+            if(candidates[i].number == number) {
+                candidate = i;
+                break;
+            }
+        }
+
+        if (candidate == candidates.length){       
+            revert("Candidate not found");
+        }
+        sender.voted = true;
+        sender.vote = candidate;
+
+        // If 'candidate' is out of the range of the array,
+        // this will throw automatically and revert all
+        // changes.
+        candidates[candidate].voteCount += sender.weight;
+    }
+
+ 
+    function winningCandidate() public view
+            returns (uint winningCandidate_)
+    {
+        uint winningVoteCount = 0;
+        for (uint p = 0; p < candidates.length; p++) {
+            if (candidates[p].voteCount > winningVoteCount) {
+                winningVoteCount = candidates[p].voteCount;
+                winningCandidate_ = p;
+            }
+        }
+    }
+
+ 
+    function winner() public view
+            returns (uint256 winner_)
+    {
+        winner_= candidates[winningCandidate()].number;
+    }
+}
