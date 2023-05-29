@@ -41,7 +41,7 @@ async function displayResults() {
     await getCandidateList().then((candidateData) => {
 
         candidateData.forEach(element => {
-          createResultssForm(element.name, element.number, "result");
+          createResultstForm(element.name, element.number, "result");
           const br1 = document.createElement("br");
           const br2 = document.createElement("br");
           document.getElementById("result").appendChild(br1);
@@ -60,7 +60,7 @@ async function displayResults() {
 }
 
 // creates the results form with candidates
-function createResultssForm(name, number, divName) {
+function createResultstForm(name, number, divName) {
 
     const id = "Candidate" + number;
     const candidateName = document.createElement("label");

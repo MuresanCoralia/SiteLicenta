@@ -63,7 +63,7 @@ function getCandidateName() {
 }
 
 // function to get the list of candidates from blockchain
-function getCandList() {
+function getCandidateListBlockchain() {
   getCandidateList().then((candidateData) => {
       candidateList = candidateData;
   }).catch((error) => {
@@ -75,7 +75,7 @@ async function runPage() {
   await web3Load("Profil.html");
 
   // get the candidates list
-  getCandList();
+  getCandidateListBlockchain();
 
   // the back button
   const buttonBack = document.getElementById("back");

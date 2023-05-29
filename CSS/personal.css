@@ -298,6 +298,14 @@ input[type='radio']:checked:after {
     resize: none;
 }
 
+/* .coloane{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position:relative;
+
+} */
+
 .coloane:after {
     content: "";
     display: table;
