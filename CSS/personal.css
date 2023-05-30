@@ -362,3 +362,13 @@ input[type='radio']:checked:after {
     border-radius: 5px;
     background: linear-gradient(45deg, #CDDCFD, #CDDCFD);
 }
+
+
+.rezultateFinale {
+    color: #ffffff;
+    font-size: 20px;
+    position:absolute;
+    text-align:center;
+    margin-top: 15%;
+    width:100%;
+}
