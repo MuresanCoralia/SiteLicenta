@@ -14,10 +14,10 @@ async function displayResults() {
             const br2 = document.createElement("br");
             document.getElementById("formRezultate").appendChild(br1);
             document.getElementById("formRezultate").appendChild(br2);
-            if (element.voteCount == 1)
+            if (element.voteCount == 1) 
                 document.getElementById('Candidate' + element.number).innerHTML = element.voteCount + " vot";
             else
-            document.getElementById('Candidate' + element.number).innerHTML = element.voteCount + " voturi";
+                document.getElementById('Candidate' + element.number).innerHTML = element.voteCount + " voturi";
         });
     });
 }
