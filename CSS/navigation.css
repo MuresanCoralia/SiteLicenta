@@ -32,8 +32,8 @@ li {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: rgb(205, 220, 253);
-    color: rgb(80, 121, 216);
+    background-color:rgb(130, 218, 255);
+    color: rgb(132, 215, 250);
     border-bottom: 3px solid #2f2f2f;
     padding: 20px;
 }   
@@ -48,7 +48,8 @@ li {
     position: relative;
     left: 60px;
     font-size: 32px;  
-    text-shadow: 2px 2px #0d1f2b; 
+    text-shadow: 2px 2px #0d2332; 
+    color:rgb(55, 93, 182);
 }
 
 /* the logo image */
@@ -86,7 +87,7 @@ img {
     border-radius: 5px;
     border-style: solid;
     border-color: #2f2f2f;
-    background-color: #CDDCFD;
+    background-color:rgb(130, 218, 255);
     padding: 1em 0;
     position: absolute; 
     display: none;
@@ -133,7 +134,7 @@ img {
     float: left;
     width: 50%;
     height: 480px;
-    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(rgb(255, 127, 92), rgb(130, 218, 255));
     border-style: solid;
     border-color: #2f2f2f;
     min-height: 100% !important;
@@ -147,16 +148,12 @@ img {
     float:left;
 }
 
-#imagine-news {
-    height: 100px;
-    width: 100px;
-}
-
 .small-news {
     height: 96px;
     width: 640px;
     border-style: solid;
     border-color: #2f2f2f;
+    background-color: rgb(249, 155, 128);
 }
 
 .seeMore {
