@@ -31,16 +31,14 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    background-color:rgb(130, 218, 255);
-    color: rgb(132, 215, 250);
-    border-bottom: 3px solid #2f2f2f;
-    padding: 20px;
+    padding: 15px;
+    background-color:#2f2f2f;
+    border-bottom: 3px solid #141414;
 }   
 
 /* the menu buttons */
 .nav-links a {
-    color: #2f2f2f;
+    color: #ffffff;
 }
 
 /* the logo */
@@ -48,13 +46,14 @@ li {
     position: relative;
     left: 60px;
     font-size: 32px;  
-    text-shadow: 2px 2px #0d2332; 
-    color:rgb(55, 93, 182);
+    text-shadow: 2px 2px #4b5154; 
+    color:rgb(129, 160, 214);
 }
 
 /* the logo image */
 img {
     position: absolute;
+    color:#fff;
     width: 50px;
     height: 50px;
 }
@@ -86,8 +85,8 @@ img {
 .dropdown {
     border-radius: 5px;
     border-style: solid;
-    border-color: #2f2f2f;
-    background-color:rgb(130, 218, 255);
+    border-color: #141414;
+    background-color:#2f2f2f;
     padding: 1em 0;
     position: absolute; 
     display: none;
@@ -167,7 +166,7 @@ img {
 } 
 
 .seeMore:hover {
-    background-color: rgb(80, 121, 216);
+    background-color: rgb(129, 160, 214);
 }
   
 
