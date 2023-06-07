@@ -50,4 +50,12 @@ async function runPage() {
     } else {
         document.getElementById("votat").innerHTML = " Nu ați votat";
     } 
+
+    //setElectionStart("1686054780","1686054960");
+    let startDate = new Date( 1686054780 *1000);
+    document.getElementById("start").innerHTML = startDate.toLocaleString();
+    console.log(startDate.toLocaleString());
+    let stopDate = new Date( 1686054960 *1000);
+    document.getElementById("stop").innerHTML = stopDate.toLocaleString();
+    console.log(stopDate.toLocaleString());
 }

@@ -2,7 +2,10 @@
 window.web3 = new Web3(window.ethereum);
 
 const contracts = {
-    bsc: '0x9bf056217cF3e0485F96Ff30675c83c19D348bEC' 
+    // with the timer
+    bsc: '0x4F92252ae99ECddB6bb56bF566610693b74ad0D9'
+    // without the timer
+    //bsc: '0x9bf056217cF3e0485F96Ff30675c83c19D348bEC' 
 }
 
 export let accounts;
@@ -48,6 +51,21 @@ export async function voterLoad() {
             console.log("voterLoad:Error ", error);
         });
     return voter;
+}
+
+// set the time of the election
+export async function setElectionStart(start, stop) {
+    const tx = contract.methods.setElectionStart(start, stop).send({
+        from: accounts[0],
+        to: contract.address
+    })
+        .then((result) => {
+            console.log("Result ", result)
+            return result
+        })
+        .catch((error) => {
+            console.log("Error ", error);
+        });
 }
 
 

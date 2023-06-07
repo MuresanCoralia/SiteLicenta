@@ -48,7 +48,6 @@ function submit() {
 
   vote(usersChosenCandidate);
   alert("Vreți să votați cu candidatul: " + getCandidateName());
-  //location.href = "Profil.html"; 
 }
 
 // function to get the name of the candidate
