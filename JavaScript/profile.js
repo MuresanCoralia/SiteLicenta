@@ -52,10 +52,10 @@ async function runPage() {
     } 
 
     //setElectionStart("1686054780","1686054960");
-    let startDate = new Date( 1686054780 *1000);
-    document.getElementById("start").innerHTML = startDate.toLocaleString();
+    let startDate = new Date( 1686157200 *1000);
+    document.getElementById("start").innerHTML = startDate.getFullYear() + "/" + (startDate.getMonth() + 1) + "/" + (startDate.getDay() + 4) + "  --  " + startDate.getHours() + ":" + startDate.getMinutes();
     console.log(startDate.toLocaleString());
-    let stopDate = new Date( 1686054960 *1000);
-    document.getElementById("stop").innerHTML = stopDate.toLocaleString();
+    let stopDate = new Date( 1686160800 *1000);
+    document.getElementById("stop").innerHTML = stopDate.getFullYear() + "/" + (stopDate.getMonth() + 1) + "/" + (stopDate.getDay() + 4) + "  --  " + stopDate.getHours() + ":" + stopDate.getMinutes();
     console.log(stopDate.toLocaleString());
 }

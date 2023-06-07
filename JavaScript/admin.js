@@ -6,12 +6,15 @@ function addCandidates() {
     const candidateName = document.getElementById("candidati").value;
     const candidateNumber = document.getElementById("numar").value;
     addCandidate(candidateName, candidateNumber);
+    document.getElementById('candidati').value = null;
+    document.getElementById('numar').value = null;
 }
 
 // function to delete one candidate
 function deleteOneCandidate() {
     const candidateNumberToDelete = document.getElementById("numarSters").value;
     deleteCandidate(candidateNumberToDelete);
+    document.getElementById('numarSters').value = null;
 }
 
 //function to add votters
@@ -23,12 +26,14 @@ function submitVoters() {
         finalWallets.push(element.trim());
     });
     addVoters(finalWallets);
+    document.getElementById('voter').value = null;
 }
 
 // function to delete one voter
 function deleteOneVoter() {
     const voterToDelete = document.getElementById("alegatorSters").value;
     deleteVoter(voterToDelete);
+    document.getElementById('alegatorSters').value = null;
 }
 
 // function to display the wallets allowed to vote
