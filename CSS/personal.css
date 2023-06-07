@@ -129,13 +129,24 @@
 
 
 /* THE VOTE PAGE */ 
-.alegere {
+.alegere h2 {
     margin-top: 7%;
-    font-size: 13px;
+    font-size: 20px;
     color: white;
     text-align:center;
     font-style: normal;
     font-weight: normal;
+}
+
+.alegere label {
+    float:left;
+    width: 150px;
+    font-size: 13px;
+    color: white;
+    margin-left: 35%;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
 }
 
 input[type='radio']:after {
@@ -303,12 +314,24 @@ input[type='radio']:checked:after {
     background-color:rgba(0, 0, 0, 0.01);
 }
 
+#result label {
+    float: left;
+    width: 150px;
+    margin-left: 3%;
+    width: 50%;
+    text-align: right;
+}
+
+#result text {
+    float:left;
+    margin-left: 10px;
+}
+
 #result h1 {
     color: #abcfd6;;
 }
 
 .results {
-    margin-left: 15px;
     font-weight: bold;
     text-shadow: 0 0 5px rgb(255, 45, 45),
                 0 0 25px rgb(255, 45, 45),

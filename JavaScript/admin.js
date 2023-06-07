@@ -74,7 +74,7 @@ function createResultstForm(name, number, divName) {
     const id = "Candidate" + number;
     const candidateName = document.createElement("label");
     candidateName.innerHTML = name + " " + number + "  " + ": ";
-    const candidateNumber = document.createElement("label");
+    const candidateNumber = document.createElement("text");
     candidateNumber.setAttribute("class", 'results');
     candidateNumber.setAttribute("id", id);
     document.getElementById(divName).appendChild(candidateName);
