@@ -51,11 +51,21 @@ async function runPage() {
         document.getElementById("votat").innerHTML = " Nu ați votat";
     } 
 
+    // set the time of election and changes options for voter accordingly
     //setElectionStart("1686054780","1686054960");
-    let startDate = new Date( 1686157200 *1000);
-    document.getElementById("start").innerHTML = startDate.getFullYear() + "/" + (startDate.getMonth() + 1) + "/" + (startDate.getDay() + 4) + "  --  " + startDate.getHours() + ":" + startDate.getMinutes();
-    console.log(startDate.toLocaleString());
-    let stopDate = new Date( 1686160800 *1000);
-    document.getElementById("stop").innerHTML = stopDate.getFullYear() + "/" + (stopDate.getMonth() + 1) + "/" + (stopDate.getDay() + 4) + "  --  " + stopDate.getHours() + ":" + stopDate.getMinutes();
-    console.log(stopDate.toLocaleString());
+    let startDate = new Date( 1686247200 *1000);
+    let stopDate = new Date( 1686252000 *1000);
+    let currentDate = new Date();
+    document.getElementById("start").innerHTML = startDate.toLocaleString('ro-RO');
+    document.getElementById("stop").innerHTML = stopDate.toLocaleString('ro-RO');
+    if ((stopDate.toLocaleTimeString('ro-RO') < currentDate.toLocaleTimeString('ro-RO')) && (stopDate.toLocaleDateString('ro-RO') <= currentDate.toLocaleDateString('ro-RO'))) {
+        // no longer able to vote
+        document.getElementById('votePrezid').innerHTML = "Rezultate";
+        const resultsButton = document.getElementById("votePrezid");
+        const seeRezult = () => {
+          // get the user to the results page
+          location.href = "Rezultate.html";
+        };
+        resultsButton.addEventListener("click", seeRezult);
+    }
 }

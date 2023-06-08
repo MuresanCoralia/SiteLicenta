@@ -410,3 +410,16 @@ input[type='radio']:checked:after {
     margin-top: 15%;
     width:100%;
 }
+
+.rezultateFinale label {
+    float: left;
+    width: 150px;
+    margin-left: 2%;
+    width: 50%;
+    text-align: right;
+}
+
+.rezultateFinale text {
+    float:left;
+    margin-left: 10px;
+}
