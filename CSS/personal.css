@@ -20,8 +20,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    height: 450px;
-    width: 700px;
+    height: 90%;
+    width: 65%;
     background: rgba(0, 0, 0, 0.6);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
@@ -60,7 +60,7 @@
 }
 
 .wallet h2 {
-    margin-top: 4%;
+    margin-top: 6%;
     text-align:center;
     font-style: normal;
     font-weight: normal;
@@ -79,7 +79,6 @@
 
 .optiuni {
     margin-top: 6%;
-    margin-bottom: 5%;
     align-items: center;
     justify-content: center;
 }
@@ -92,8 +91,8 @@
                 0 0 100px rgb(255, 127, 92);
 }
 
-#back {
-    margin-bottom: 2%;
+#logOut {
+    margin-bottom: 5%;
 }
 
 /* all buttons the same */
@@ -143,7 +142,7 @@
     width: 150px;
     font-size: 13px;
     color: white;
-    margin-left: 35%;
+    margin-left: calc(50% - 90px);
     font-style: normal;
     font-weight: normal;
     text-align: center;
@@ -316,7 +315,6 @@ input[type='radio']:checked:after {
 
 #result label {
     float: left;
-    width: 150px;
     margin-left: 3%;
     width: 50%;
     text-align: right;
@@ -385,6 +383,10 @@ input[type='radio']:checked:after {
     color: white;
     text-align: left;
     overflow: scroll;
+}
+
+.right p {
+    margin-left: 5%;
 }
 
 ::-webkit-scrollbar-track {
