@@ -53,7 +53,7 @@ export async function voterLoad() {
 }
 
 // set the time of the election
-export async function setElectionStart(start, stop) {
+export async function setElectionTime(start, stop) {
     const tx = contract.methods.setElectionStart(start, stop).send({
         from: accounts[0],
         to: contract.address
