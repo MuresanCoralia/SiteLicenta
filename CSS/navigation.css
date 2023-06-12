@@ -115,11 +115,11 @@ img {
 
 /* the loading images */
 #img {
+    width: 60%;
+    height: 60%;
     position: absolute;
-    left: 300px;
-    top: 110px;
-    width: 680px;
-    height: 420px;
+    left: 20%;
+    top: 20%;
 }
 
 
@@ -127,12 +127,17 @@ img {
 /* for the news cards */
 #news {
     height: 100%;
+    width: 100%;
 }
 
 #left {
     float: left;
     width: 50%;
-    height: 480px;
+    height: 100%;
+    top: 75px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
     background-image: linear-gradient(rgb(255, 127, 92), rgb(130, 218, 255));
     border-style: solid;
     border-color: #2f2f2f;
@@ -140,16 +145,22 @@ img {
 }
 
 #right {
+    float: right;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 75px;
+    bottom: 0;
+    right: 0;
     margin: 5 0 0 0px;
     background-color: #ffffff;
     width: 50%;
     min-height: 100% !important;
-    float:left;
 }
 
 .small-news {
-    height: 96px;
-    width: 640px;
+    height: 20%;
+    width: 100%;
     border-style: solid;
     border-color: #2f2f2f;
     background-color: rgb(249, 155, 128);
@@ -161,7 +172,9 @@ img {
     height: 25px;
     width: 105px;
     color: #fff;
-    margin-left: 500px;
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 5%;
     border-radius: 6px;
 } 
 
@@ -184,8 +197,8 @@ img {
     position: relative;
     top: 220px;
     left: 50%;
-    width: 400px;
-    height: 350px;
+    width: 50%;
+    height: 50%;
     padding: 40px;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.6);
@@ -218,7 +231,9 @@ img {
 
 .login-box form a {
     position: relative;
-    margin-left: 22%;
+    margin-left: calc(50% - 100px);
+    width: 200px;
+    text-align: center;
     display: inline-block;
     padding: 10px 20px;
     color: #abcfd6;
@@ -227,7 +242,7 @@ img {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
+    margin-top: 15%;
     letter-spacing: 4px;
 }
 
