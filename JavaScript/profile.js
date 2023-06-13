@@ -1,5 +1,5 @@
 
-import {web3Load, voterLoad, getCandidateList, accounts, getChairPerson} from './blockchain.js';
+import {web3Load, voterLoad, getCandidateList, accounts, getChairPerson, setElectionTime} from './blockchain.js';
 
 runPage();
 
@@ -52,9 +52,9 @@ async function runPage() {
     } 
 
     // set the time of election and changes options for voter accordingly
-    //setElectionTime("1686054780","1686054960");
-    let startDate = new Date( 1686247200 *1000);
-    let stopDate = new Date( 1686204900 *1000);
+    //setElectionTime("1686682800","1686686400");
+    let startDate = new Date( 1686682800 * 1000);
+    let stopDate = new Date( 1686686400 * 1000);
     let currentDate = new Date();
     document.getElementById("start").innerHTML = startDate.toLocaleString('ro-RO');
     document.getElementById("stop").innerHTML = stopDate.toLocaleString('ro-RO');
