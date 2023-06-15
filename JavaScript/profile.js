@@ -46,7 +46,8 @@ async function runPage() {
         }).catch((error) => {
             console.log(error);
         })
-        document.getElementById("votePrezid").style.visibility='hidden';
+        // todo: dupa ce timpul e  gata nu mai apare butonul
+        //document.getElementById("votePrezid").style.visibility='hidden';
     } else {
         document.getElementById("votat").innerHTML = " Nu ați votat";
     } 
