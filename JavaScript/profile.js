@@ -46,21 +46,22 @@ async function runPage() {
         }).catch((error) => {
             console.log(error);
         })
-        // todo: dupa ce timpul e  gata nu mai apare butonul
-        //document.getElementById("votePrezid").style.visibility='hidden';
+        document.getElementById("votePrezid").style.visibility = 'hidden';
     } else {
         document.getElementById("votat").innerHTML = " Nu ați votat";
     } 
 
     // set the time of election and changes options for voter accordingly
-    //setElectionTime("1686682800","1686686400");
-    let startDate = new Date( 1686682800 * 1000);
-    let stopDate = new Date( 1686686400 * 1000);
+    //setElectionTime("1686938400","1686938700");
+    let startDate = new Date( 1686936652 * 1000);
+    let stopDate = new Date( 1686936952 * 1000);
     let currentDate = new Date();
     document.getElementById("start").innerHTML = startDate.toLocaleString('ro-RO');
     document.getElementById("stop").innerHTML = stopDate.toLocaleString('ro-RO');
     if ((stopDate.toLocaleTimeString('ro-RO') < currentDate.toLocaleTimeString('ro-RO')) && (stopDate.toLocaleDateString('ro-RO') <= currentDate.toLocaleDateString('ro-RO'))) {
         // no longer able to vote
+        if(profile.voted)
+            document.getElementById("votePrezid").style.visibility = 'visible';
         document.getElementById('votePrezid').innerHTML = "Rezultate";
         const resultsButton = document.getElementById("votePrezid");
         const seeRezult = () => {

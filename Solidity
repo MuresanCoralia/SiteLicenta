@@ -118,6 +118,7 @@ contract Election {
     function addVoters(address [] memory allVoter_) public beforeElection onlyChainPerson{
         for(uint256 i=0; i< allVoter_.length; i++){
             address newVoter = allVoter_[i];
+            require (!exists(newVoter), "Voter already exists");
             voters[newVoter].weight = 1;
             listOfvoters.push(newVoter);
         }
@@ -170,6 +171,14 @@ contract Election {
         // If 'candidate' is out of the range of the array,
         // this will throw automatically and revert all changes.
         candidates[candidate].voteCount += sender.weight;
+    }
+
+    function getStartTime() public view returns(uint256){
+        return electionStart;
+    }
+
+    function getStopTime() public view returns(uint256){
+        return electionEnds;
     }
     
 }
