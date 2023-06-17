@@ -66,6 +66,16 @@ async function runPage() {
         document.getElementById("votat").innerHTML = " Nu ați votat";
     } 
 
+    /*
+    await getStartTime().then((startTime) => {
+        let startDate = new Date(startTime);
+    });
+
+    await getStoptTime().then((stopTime) => {
+        let stopDate = new Date(stopTime);
+    });
+    */
+
     // set the time of election and changes options for voter accordingly
     let startDate = new Date( 1686936652 * 1000);
     let stopDate = new Date( 1686936952 * 1000);
