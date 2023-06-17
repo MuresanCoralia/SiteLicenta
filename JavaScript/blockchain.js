@@ -3,7 +3,7 @@ window.web3 = new Web3(window.ethereum);
 
 const contracts = {
     // with the timer
-    bsc: '0xa54A1d4220b93b81495f6865b3e9899f2C6A2739'
+    bsc: '0xBc80D37197bE3273F3A12AD105cC34660D064cBe'
     // without the timer
     //bsc: '0x9bf056217cF3e0485F96Ff30675c83c19D348bEC' 
 }
@@ -217,7 +217,6 @@ export async function voteResults(candidate) {
 }
 */
 
-
 /* vote page */
 // vote the candidate in blockchain
 export async function vote(myCandidate) {
@@ -238,7 +237,7 @@ export async function vote(myCandidate) {
 export async function getStartTime() {
     let startTime = await contract.methods.getStartTime().call()
         .then((result) => {
-            console.log("StartTime:Result ", result)
+            console.log("StartTime:Result ", result, typeof result)
             return result
         })
         .catch((error) => {

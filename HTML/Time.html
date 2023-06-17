@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="../CSS/personal.css" />
+   <title>Licență</title>
+   <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js" ></script>
+ </head>
+ <body id="backgroundvote">
+  
+  <div class="profil-box">
+    <h1>Setează timpul alegerilor prezidențiale din anul 2024</h1>
+        <div class="time">
+            <label for="startTime">Timp de start: </label><br><br>
+            <textarea class="setareTimp" name="startTime" id="startTime" rows="1" cols="15"></textarea><br><br>
+            <label for="stopTime">Timp de stop: </label><br><br>
+            <textarea class="setareTimp" name="stopTime" id="stopTime" rows="1" cols="15"></textarea><br><br><br>
+            <button id="submitTime" class="butoane" type="submit" value="Submit">Submit</button><br><br>
+        </div>
+    <br><br>
+    <button id="back" class="butoane">Înapoi</button>
+  </div>
+
+ </body>
+ <script src="../JavaScript/blockchain.js" type="module"></script>
+ <script type="module" src="../JavaScript/setTime.js"></script>
+ </html>

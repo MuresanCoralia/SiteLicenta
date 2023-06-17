@@ -1,5 +1,5 @@
 
-import {web3Load, voterLoad, getCandidateList, accounts, getChairPerson, setElectionTime} from './blockchain.js';
+import {web3Load, voterLoad, getCandidateList, accounts, getChairPerson} from './blockchain.js';
 
 runPage();
 
@@ -22,7 +22,7 @@ async function runPage() {
             // the admin button
             const admin = document.getElementById("admin");
             admin.style.visibility = "visible";
-  
+
             // admin function
             const adminLogIn = () => {
   
@@ -32,6 +32,21 @@ async function runPage() {
   
             // the admin click
             admin.addEventListener("click", adminLogIn);
+
+            // the time button
+            const time = document.getElementById("setTime");
+            time.style.visibility = "visible";
+
+            // time function
+            const adminSetTime = () => {
+  
+                // get the user to the voting page
+                location.href = "Time.html";
+            };
+  
+            // the time click
+            time.addEventListener("click", adminSetTime);
+  
         }
     });
 
@@ -52,7 +67,6 @@ async function runPage() {
     } 
 
     // set the time of election and changes options for voter accordingly
-    //setElectionTime("1686938400","1686938700");
     let startDate = new Date( 1686936652 * 1000);
     let stopDate = new Date( 1686936952 * 1000);
     let currentDate = new Date();
