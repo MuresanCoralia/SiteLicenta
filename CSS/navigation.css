@@ -92,6 +92,7 @@ img {
     display: none;
     border-radius: 8px;
     top: 35px;
+    z-index: 9;
 }
 
 .dropdown li + li {

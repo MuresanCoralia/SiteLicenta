@@ -1,5 +1,5 @@
 
-import {web3Load, voterLoad, getCandidateList, accounts, getChairPerson} from './blockchain.js';
+import {web3Load, voterLoad, getCandidateList, accounts, getChairPerson, getStartTime, getStopTime} from './blockchain.js';
 
 runPage();
 
@@ -51,8 +51,8 @@ async function runPage() {
     });
 
 
+    // if the voter voted it displays the choice and hiddes the voteaza button
     if(profile.voted) {
-        // if the voter voted it displays the choice and hiddes the voteaza button
         getCandidateList().then((candidateData) => {
             candidateData.forEach(element => {
                 if (candidateData.indexOf(element) == profile.vote) 
@@ -66,19 +66,31 @@ async function runPage() {
         document.getElementById("votat").innerHTML = " Nu ați votat";
     } 
 
+    // if the admin has set the time it hides the timp button
+    if (getStartTime() !== undefined  && getStopTime() !== undefined) {
+        document.getElementById("setTime").style.visibility = 'hidden';
+    }
+
     /*
     await getStartTime().then((startTime) => {
         let startDate = new Date(startTime);
+        console.log(startDate, typeof startDate);
     });
 
-    await getStoptTime().then((stopTime) => {
-        let stopDate = new Date(stopTime);
+    await getStopTime().then((stopTime) => {
+        let stopDate = stopTime;
+        console.log(stopDate, typeof stopDate);
     });
+
+    let startTime = getStartTime();
+    console.log(startTime, typeof startTime);
+    let stopTime = getStopTime();
+    console.log(stopTime, typeof stopTime);
     */
 
     // set the time of election and changes options for voter accordingly
-    let startDate = new Date( 1686936652 * 1000);
-    let stopDate = new Date( 1686936952 * 1000);
+    let startDate = new Date( 1687199400 * 1000);
+    let stopDate = new Date( 1687201200 * 1000);
     let currentDate = new Date();
     document.getElementById("start").innerHTML = startDate.toLocaleString('ro-RO');
     document.getElementById("stop").innerHTML = stopDate.toLocaleString('ro-RO');

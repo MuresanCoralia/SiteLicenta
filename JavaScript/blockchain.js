@@ -3,7 +3,7 @@ window.web3 = new Web3(window.ethereum);
 
 const contracts = {
     // with the timer
-    bsc: '0xBc80D37197bE3273F3A12AD105cC34660D064cBe'
+    bsc: '0xfd2F83e7b97Dd51AF714aa05b4fA097d809ef9EC'
     // without the timer
     //bsc: '0x9bf056217cF3e0485F96Ff30675c83c19D348bEC' 
 }
@@ -64,6 +64,30 @@ export async function setElectionTime(start, stop) {
         })
         .catch((error) => {
             console.log("Error ", error);
+        });
+}
+
+// get the start time of the election
+export async function getStartTime() {
+    let startTime = await contract.methods.getStartTime().call()
+        .then((result) => {
+            console.log("StartTime:Result ", result, typeof result)
+            return result
+        })
+        .catch((error) => {
+            console.log("StartTime:Error ", error);
+        });
+}
+
+// get the end time of the election
+export async function getStopTime() {
+    let stopTime = await contract.methods.getStopTime().call()
+        .then((result) => {
+            console.log("StopTime:Result ", result, typeof result)
+            return result
+        })
+        .catch((error) => {
+            console.log("StopTime:Error ", error);
         });
 }
 
@@ -232,27 +256,3 @@ export async function vote(myCandidate) {
             console.log("Error ", error);
         });
 }
-
-/*
-export async function getStartTime() {
-    let startTime = await contract.methods.getStartTime().call()
-        .then((result) => {
-            console.log("StartTime:Result ", result, typeof result)
-            return result
-        })
-        .catch((error) => {
-            console.log("StartTime:Error ", error);
-        });
-}
-
-export async function getStopTime() {
-    let stopTime = await contract.methods.getStopTime().call()
-        .then((result) => {
-            console.log("StopTime:Result ", result, typeof result)
-            return result
-        })
-        .catch((error) => {
-            console.log("StopTime:Error ", error);
-        });
-}
-*/
