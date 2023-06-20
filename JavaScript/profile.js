@@ -46,7 +46,7 @@ async function runPage() {
   
             // the time click
             time.addEventListener("click", adminSetTime);
-  
+          
         }
     });
 
@@ -66,10 +66,14 @@ async function runPage() {
         document.getElementById("votat").innerHTML = " Nu ați votat";
     } 
 
+    /*
+    // vezi prima cifra sa fie 1
     // if the admin has set the time it hides the timp button
-    if (getStartTime() !== undefined  && getStopTime() !== undefined) {
+    if (typeof getStartTime() == Promise && typeof getStopTime() == Promise) {
         document.getElementById("setTime").style.visibility = 'hidden';
     }
+    console.log("ceva",getStartTime());
+    */
 
     /*
     await getStartTime().then((startTime) => {
@@ -87,7 +91,8 @@ async function runPage() {
     let stopTime = getStopTime();
     console.log(stopTime, typeof stopTime);
     */
-
+    //console.log("cdf", String(getStartTime()));
+    //console.log("Vezi", getStartTime(),"vezi", typeof getStartTime(),"vezi", Number(getStartTime()),"vezi", String(getStartTime()));
     // set the time of election and changes options for voter accordingly
     let startDate = new Date( 1687199400 * 1000);
     let stopDate = new Date( 1687201200 * 1000);

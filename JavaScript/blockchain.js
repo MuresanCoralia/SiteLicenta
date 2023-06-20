@@ -3,7 +3,7 @@ window.web3 = new Web3(window.ethereum);
 
 const contracts = {
     // with the timer
-    bsc: '0xfd2F83e7b97Dd51AF714aa05b4fA097d809ef9EC'
+    bsc: '0xc11f4690C1CfF6d076A722dBa058DfdF82277e2c'
     // without the timer
     //bsc: '0x9bf056217cF3e0485F96Ff30675c83c19D348bEC' 
 }

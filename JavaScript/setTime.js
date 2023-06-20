@@ -25,10 +25,10 @@ async function runPage() {
     // back function
     const timeBack = () => {
 
-        // get the user to the voting choice page
+        // get the admin to the voting choice page
         location.href = "Profil.html";
     };
-    // the back vote click
+    // the back click
     buttonBack.addEventListener("click", timeBack);
 
 }
