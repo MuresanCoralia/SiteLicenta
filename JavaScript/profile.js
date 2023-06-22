@@ -65,42 +65,28 @@ async function runPage() {
     } else {
         document.getElementById("votat").innerHTML = " Nu ați votat";
     } 
+    
+    // set the time of election and changes options for voter 
+    const start = await getStartTime();
+    let startDate = new Date( Number(start) * 1000);
+    const stop = await getStopTime();
+    let stopDate = new Date( Number(stop) * 1000);
+    let currentDate = new Date();
 
-    /*
-    // vezi prima cifra sa fie 1
+    // show the time once it is set
     // if the admin has set the time it hides the timp button
-    if (typeof getStartTime() == Promise && typeof getStopTime() == Promise) {
+    if ( stopDate.getFullYear() == 1970 ) {
+        document.getElementById("start").innerHTML = "...";
+        document.getElementById("stop").innerHTML = "...";
+    } else {
+        document.getElementById("start").innerHTML = startDate.toLocaleString('ro-RO');
+        document.getElementById("stop").innerHTML = stopDate.toLocaleString('ro-RO');
         document.getElementById("setTime").style.visibility = 'hidden';
     }
-    console.log("ceva",getStartTime());
-    */
 
-    /*
-    await getStartTime().then((startTime) => {
-        let startDate = new Date(startTime);
-        console.log(startDate, typeof startDate);
-    });
-
-    await getStopTime().then((stopTime) => {
-        let stopDate = stopTime;
-        console.log(stopDate, typeof stopDate);
-    });
-
-    let startTime = getStartTime();
-    console.log(startTime, typeof startTime);
-    let stopTime = getStopTime();
-    console.log(stopTime, typeof stopTime);
-    */
-    //console.log("cdf", String(getStartTime()));
-    //console.log("Vezi", getStartTime(),"vezi", typeof getStartTime(),"vezi", Number(getStartTime()),"vezi", String(getStartTime()));
-    // set the time of election and changes options for voter accordingly
-    let startDate = new Date( 1687199400 * 1000);
-    let stopDate = new Date( 1687201200 * 1000);
-    let currentDate = new Date();
-    document.getElementById("start").innerHTML = startDate.toLocaleString('ro-RO');
-    document.getElementById("stop").innerHTML = stopDate.toLocaleString('ro-RO');
+    // no longer able to vote
     if ((stopDate.toLocaleTimeString('ro-RO') < currentDate.toLocaleTimeString('ro-RO')) && (stopDate.toLocaleDateString('ro-RO') <= currentDate.toLocaleDateString('ro-RO'))) {
-        // no longer able to vote
+    
         if(profile.voted)
             document.getElementById("votePrezid").style.visibility = 'visible';
         document.getElementById('votePrezid').innerHTML = "Rezultate";

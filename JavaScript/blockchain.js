@@ -3,7 +3,7 @@ window.web3 = new Web3(window.ethereum);
 
 const contracts = {
     // with the timer
-    bsc: '0xc11f4690C1CfF6d076A722dBa058DfdF82277e2c'
+    bsc: '0x05F438504240394c4B0649453B1Acd8E3fBE4dBF'
     // without the timer
     //bsc: '0x9bf056217cF3e0485F96Ff30675c83c19D348bEC' 
 }
@@ -77,6 +77,7 @@ export async function getStartTime() {
         .catch((error) => {
             console.log("StartTime:Error ", error);
         });
+    return startTime;
 }
 
 // get the end time of the election
@@ -89,6 +90,7 @@ export async function getStopTime() {
         .catch((error) => {
             console.log("StopTime:Error ", error);
         });
+    return stopTime;
 }
 
 
