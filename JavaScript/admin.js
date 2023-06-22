@@ -51,7 +51,7 @@ async function displayVoters() {
 }
 
 // Retrieves the full array with all the candidates and their votes from 
-// blockchain and show in the screen
+// blockchain and show on the screen
 async function displayResults() {
 
     // get the candidates list
@@ -80,6 +80,7 @@ function createResultstForm(name, number, divName) {
     document.getElementById(divName).appendChild(candidateName);
     document.getElementById(divName).appendChild(candidateNumber);
 }
+
 
 async function runPage() {
     await web3Load("Profil.html");

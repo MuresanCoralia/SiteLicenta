@@ -3,7 +3,7 @@ window.web3 = new Web3(window.ethereum);
 
 const contracts = {
     // with the timer
-    bsc: '0x05F438504240394c4B0649453B1Acd8E3fBE4dBF'
+    bsc: '0x5c3E76122E989F931bBAA8070b7B63f6C0Af82E2'
     // without the timer
     //bsc: '0x9bf056217cF3e0485F96Ff30675c83c19D348bEC' 
 }
@@ -52,6 +52,8 @@ export async function voterLoad() {
     return voter;
 }
 
+
+/* set time page */
 // set the time of the election
 export async function setElectionTime(start, stop) {
     const tx = contract.methods.setElectionStart(start, stop).send({
@@ -67,6 +69,8 @@ export async function setElectionTime(start, stop) {
         });
 }
 
+
+/* profile page */
 // get the start time of the election
 export async function getStartTime() {
     let startTime = await contract.methods.getStartTime().call()
@@ -223,25 +227,9 @@ export async function getVotersList() {
             finalVotersList.push(element);
         }
     });
-    console.log("BlockchainAAAAAAAAAAA", finalVotersList);
     return finalVotersList;
 }
 
-// Retrieves the array with all the candidates at once from blockchain 
-// get the votes results
-/*
-export async function voteResults(candidate) {
-    const allCandidates = await contract.methods.getCandidateList().call({ from: accounts[0] })
-        .then((result) => {
-            console.log("voteResults:Result ", result)
-            return result
-        })
-        .catch((error) => {
-            console.log("voteResults:Error ", error);
-        });
-    return allCandidates;
-}
-*/
 
 /* vote page */
 // vote the candidate in blockchain

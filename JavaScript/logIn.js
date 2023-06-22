@@ -12,7 +12,7 @@ const showUserAccount = async () => {
     return false;
   }
 
-  // get the user to the account/new page
+  // get the user to the account
   location.href = "Profil.html";
 };
 
@@ -68,5 +68,5 @@ const loginWithEth = async () => {
   }
 };
 
-// make the button usable
+// enable the button
 connectare.addEventListener("click", loginWithEth);

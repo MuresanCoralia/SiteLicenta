@@ -66,7 +66,7 @@ async function runPage() {
         document.getElementById("votat").innerHTML = " Nu ați votat";
     } 
     
-    // set the time of election and changes options for voter 
+    // set the time of election 
     const start = await getStartTime();
     let startDate = new Date( Number(start) * 1000);
     const stop = await getStopTime();
@@ -85,6 +85,7 @@ async function runPage() {
     }
 
     // no longer able to vote
+    // changes options for voter 
     if ((stopDate.toLocaleTimeString('ro-RO') < currentDate.toLocaleTimeString('ro-RO')) && (stopDate.toLocaleDateString('ro-RO') <= currentDate.toLocaleDateString('ro-RO'))) {
     
         if(profile.voted)

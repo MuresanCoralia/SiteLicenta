@@ -18,7 +18,6 @@ const logout = () => {
 // the log out click
 dezabonare.addEventListener("click", logout);
 
-
 // the vote presedentiale button
 const voteButton = document.getElementById("votePrezid");
 document.getElementById('votePrezid').innerHTML = "Votează";

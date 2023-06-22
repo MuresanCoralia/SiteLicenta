@@ -1,3 +1,4 @@
+
 import { web3Load, setElectionTime } from './blockchain.js';
 
 //function to add candidates

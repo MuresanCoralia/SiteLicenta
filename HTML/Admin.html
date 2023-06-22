@@ -14,9 +14,9 @@
 
   <section class="admin-box">
     <div id="meniu">
-      <span id="editCandidate" onclick="show('editCandidate','candidate');">Editare candidati</span>
-      <span id="editVoters" onclick="show('editVoters','voters');">Editare alegatori</span>
-      <span id="seeResults" onclick="show('seeResults','result');">Rezultate voturi</span>
+      <span class="menu" id="seecandidate" onclick="show(event,'candidate');">Editare candidati</span>
+      <span class="menu" id="seevoters" onclick="show(event,'voters');">Editare alegatori</span>
+      <span class="menu" id="seeresult" onclick="show(event,'result');">Rezultate voturi</span>
     </div>
     <!-- add candidates section-->
     <div class="admin" id="candidate">
@@ -45,12 +45,14 @@
         </div>
         <div class="right">
           <div class="coloane" id="scroll"></div>
+             <!--Date incarcate dinamic-->
         </div>
       </div>
     </div>
     <!-- results candidates section-->
     <div class="admin" id="result">
       <h1>Rezultate</h1><br><br>
+         <!--Date incarcate dinamic-->
     </div>
     <button id="back" class="butoane">Înapoi</button>
   </section>

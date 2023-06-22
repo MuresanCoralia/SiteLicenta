@@ -2,7 +2,7 @@
 import {web3Load, getCandidateList } from './blockchain.js';
 
 // Retrieves the full array with all the candidates and their votes from 
-// blockchain and show in the screen
+// blockchain and show on the screen
 async function displayResults() {
 
     // get the candidates list
