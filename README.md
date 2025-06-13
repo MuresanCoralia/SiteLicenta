@@ -35,9 +35,3 @@ Conclusion
 This project demonstrates how blockchain technology can be leveraged to build a secure, transparent, and tamper-proof online voting system. 
 It provides both users and administrators with full visibility into the election process, from preparation to final results.
 
-El trebuie să adauge candidați și utilizatori în blockchain. În caz de eroare poate să ii și șteargă. Fiecare tranzacție de adăugare sau ștergere se poate vedea în blockchain la adresa contractului. 
-După ce administratorul a făcut pregătirile, aplicația este gata de folosit de utilizatori pentru a vota odată ce timpul a început. Administratorul are, însă, acces la formularul de rezultate pe toată 
-perioada alegerilor și poate vedea în timp real cum vin voturile. La sfârșitul timpului și utilizatorii vor avea acces la pagina cu rezultate. Deoarece totul este public în blockchain, toată lumea poate
-vedea tranzacțiile care au loc pe formularul de alegeri căutând în blockchain adresa contractului aplicației. Acolo au acces la toate informatile: când a fost creat contractul, când a fost setat timpul, 
-când s-au adăugat candidații, alegătorii, câte voturi au fost validate și nevalidate. Oamenii pot chiar și să numere tranzacțiile de vot în timp ce sunt făcute ca să compare cu rezultatele finale 
-generate la sfârșit de alegeri.
